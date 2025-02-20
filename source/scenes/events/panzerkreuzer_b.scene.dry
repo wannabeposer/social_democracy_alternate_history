@@ -18,7 +18,7 @@ Much of our party is deeply opposed to rearmament, while the center and right pa
 - @ministry: Use the Reichswehr Ministry to prevent the construction.
 
 @vote_yes
-on-arrival: left_dissent += 10; labor_dissent += 5; center_dissent += 5; reformist_dissent += 5 if not panzerkreuzer_funded; neorevisionist_dissent += 5 if not panzerkreuzer_funded; panzerkreuzer_b_funded = 1; kpd_coalition_dissent += 1; kpd_relation -= 6; workers_spd -= 4
+on-arrival: left_dissent += 10; labor_dissent += 5; center_dissent += 5; reformist_dissent += 5 if not panzerkreuzer_funded; neorevisionist_dissent += 5 if not panzerkreuzer_funded; panzerkreuzer_b_funded = 1; kpd_coalition_dissent += 1; kpd_relation -= 6; workers_spd -= 4; reichswehr_loyalty += 0.05
 
 Our grassroots party members are highly critical of our decision. Many party branches have increased their agitation against our parliamentary fraction. [? if panzerkreuzer_funded : However, given the construction of the previous battlecruiser, this seemed to be a foregone conclusion, and the reaction is muted. ?]
 

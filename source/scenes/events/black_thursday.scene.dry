@@ -16,10 +16,11 @@ The stock market in America has had its biggest crash in history. It is too earl
 - @do_something: We must do something to stop the suffering...
 
 @cap
+on-arrival: workers_dvp-=5;workers_dnvp-=5;workers_ddp-=5;workers_z=5;workers_nsdap=-5;workers_spd+=10;workers_kpd+=3;unemployed_nsdap-=10;unemployed_spd+=10;left_dissent-=3;center_dissent-=5;center_strength+=10 
 
 Perhaps this is simply one of the periodic crises of capitalism. Perhaps this moment will simply pass.
 
 @do_something
-on-arrival: crisis_urgency += 1
+go-to: crisis_program
 
 What can we do to staunch the workers' suffering? It is becoming a hotly debated question.

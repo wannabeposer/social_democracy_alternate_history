@@ -3,7 +3,7 @@ new-page: true
 is-card: true
 card-image: img/portraits/BrüningHeinrich.jpg
 view-if: dealing_with_toleration_timer = 0 and spd_toleration and chancellor_party == "Z"
-on-arrival: dealing_with_toleration_timer += 6; month_actions += 1
+on-arrival: dealing_with_toleration_timer += 6
 tags: govt_affairs
 #subtitle: Despite not being in government, we can still provide support.
 
@@ -16,6 +16,7 @@ We are currently acting as external support to the government of Chancellor [+ c
 - @improve_relations
 - @new_grand_coalition
 - @stay_course: Stay the course, for stability's sake.
+- @agitate:
 
 @break_toleration
 view-if: not constructive_vonc
@@ -81,3 +82,11 @@ We are now part of a "constitutional coalition" government that includes all par
 @stay_course
 
 We will stay the course of toleration, for the sake of stability.
+
+@agitate
+title: Agitate against the austerity politics of the government.
+view-if: labor_strength + left_strength > reformist_strength
+choose-if: nsdap_votes >= 15 or nazi_urgency > 1 or nsdap_r >= 10
+on-arrival: z_relation -= 5; dvp_relation -= 10; left_dissent -= 5; labor_dissent -= 10; reformist_dissent += 3; center_dissent += 5; workers_spd += 15; new_middle_spd += 10; unemployed_spd += 10; workers_z -= 10; new_middle_dvp -= 10; kpd_relation += 10; wtb_support += 1 if wtb_adopted != 0 ; nationalization_support += 1; catholics_spd += 10; catholics_z -= 5; catholics_spd += 10 if peoples_party == 1; catholics_dvp -= 5
+
+While we continue to tolerate the presidential cabinet for stability's sake we continue to agitate the white collar and blue collar workers against austerity politics of the government. Our increasing agitation makes WTB plan and socialistic transformation of the economy more popular with workers. We're also able to turn the catholic trade unions against the government.

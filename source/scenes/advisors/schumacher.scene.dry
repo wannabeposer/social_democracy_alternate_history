@@ -19,7 +19,7 @@ title: Emergency Fundraising
 subtitle: An emergency infusion of resources.
 choose-if: advisor_action_timer = 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
-on-arrival: advisor_action_timer = 6; resources += dues
+on-arrival: advisor_action_timer = 3; resources += dues
 #view-if: difficulty < 1
 
 # Schumacher's emergency fundraising is available on all difficulties.
@@ -31,7 +31,7 @@ title: Reichsbanner
 subtitle: Schumacher supports providing more resources to the Reichsbanner.
 choose-if: advisor_action_timer = 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
-on-arrival: advisor_action_timer = 6; reichsbanner_timer -= 6; last_advisor_action = 1
+on-arrival: advisor_action_timer = 3; reichsbanner_timer -= 6; last_advisor_action = 1
 go-to: reichsbanner
 
 @moderate_economic_plan
@@ -39,6 +39,6 @@ title: Support the reformist economic plan
 subtitle: Call for a limited program of job creation without deficit spending.
 choose-if: advisor_action_timer = 0 and moderate_plan_adopted = 0 and black_thursday_seen = 1
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?] [? if moderate_economic_plan = 0 : We have already adopted the reformist economic plan. ?] [? if black_thursday_seen == 0 : We are not currently in an economic crisis. ?]
-on-arrival: advisor_action_timer = 6
+on-arrival: advisor_action_timer = 3
 go-to: crisis_program.support_moderate
 
