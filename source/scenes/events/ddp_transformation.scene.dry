@@ -1,0 +1,43 @@
+title: DDP Transformation
+subtitle: The German Democratic Party is targetting a broader voter demographic.
+view-if: year == 1929 and month >= 1
+new-page: true
+max-visits: 1
+on-arrival: ddp_transformation = 1
+tags: event
+
+= DDP Transformation
+
+Leaders of the German Democratic Party, seeing the infighting of the DVP have decided that they will work to reform the party to appeal to DVP's middle class voters. 
+
+[? if ddp_relation >= 65 : The party rank-and-file are lobbying for joint lists and closer collaboration with the SPD they want to run joint lists with the SPD. ?] 
+
+
+- @merge_collaborate: We will join party lists for elections and will collaborate closely with DDP.
+- @collaborate: We will collaborate with the DDP closely and will provide them support to poach DVP's supporters, but will not merge party lists for now.
+- @nothing: This is none of our concern.
+
+@merge_collaborate
+view-if: ddp_relation >= 65
+choose-if: reformist_strength > center_strength + left_strength
+unavailable-subtitle: The center and left wings of our party will never allow this arrangement.
+on-arrival: peoples_party = 1; workers_spd -= 10; workers_ddp += 10; new_middle_ddp += new_middle_dvp; new_middle_dvp = 0; new_middle_spd += 10; new_middle_ddp -= 10; rural_ddp += (rural_dvp / 2); rural_dvp = rural_dvp / 2; old_middle_ddp += (old_middle_dvp / 2); old_middle_dvp = old_middle_dvp / 2; left_dissent += 8; center_dissent += 5; reformist_strength += 3; neorevisionist_strength += 3; reformist_dissent -= 2; neorevisionist_dissent -= 2; dvp_relation -= 10; kpd_relation -= 10
+
+We have merged our party lists with DDP and have become a people's party that appeals to all Germans. The center and left wings of our parties are furious and DDP now appeals more to workers. These shenanigans have made our relations with the DVP worse. Communists are calling us class traitors and reactionary social fascists. The party lists have also made the middle classes vary of supporting the DDP.
+
+@collaborate
+view-if: ddp_relation >= 65
+choose-if: reformist_strength > left_strength and reformist_strength > center_strength and resources >= 2
+unavailable-subtitle: [? if reformist_strength > left_strength : The left wing is too strong to allow this arrangement. ?] [? if resources < 2 : We don't have enough resources to smooth the process over. ?]
+on-arrival: new_middle_ddp += new_middle_dvp; new_middle_dvp = 0; rural_ddp += rural_dvp; rural_dvp = 0; old_middle_ddp += old_middle_dvp; old_middle_dvp = 0; left_dissent += 3; center_dissent += 1; reformist_strength += 3; neorevisionist_strength += 3; reformist_dissent -= 2; neorevisionist_dissent -= 2; dvp_relation -= 30; kpd_relation -= 20; z_relation -= 10
+go-to: vote_of_no_confidence.vonc_menu if in_grand_coalition or in_emergency_government or in_unity_government
+
+With turmoil in the DDP, we have an opportunity to recruit middle-class progressives and portions of the liberal intelligensia into our party. The left of the SPD is opposed to this path, seeing it as diluting the class character of the party. On the other hand, revisionists support this course.
+
+Of course, the DVP and conservative wing of Zentrum are furious at this move. [? if in_grand_coalition or in_emergency_government or in_unity_government : They have called a vote of no confidence against the government.?]
+
+
+@nothing
+on-arrival: new_middle_ddp += new_middle_dvp; new_middle_dvp = 0; rural_ddp += 10; rural_dvp -= 10; old_middle_ddp += 10; old_middle_dvp -= 10; reformist_dissent += 5; ddp_relation -= 10 if ddp_relation >= 65
+
+The DDP's internal affairs are none of our concern.
